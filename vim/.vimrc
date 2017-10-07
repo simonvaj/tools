@@ -2,8 +2,8 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=$HOME/.vim/bundle/Vundle.vim/
+call vundle#begin('$HOME/.vim/bundle/')
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
@@ -32,9 +32,6 @@ Plugin 'easymotion/vim-easymotion'
 " colorscheme willy-dark
 Plugin 'nightsense/willy'
 
-" gruvbox color scheme
-Plugin 'morhetz/gruvbox'
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -62,18 +59,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "call pathogen#incubate()
 "execute pathogen#infect()
 "call pathogen#helptags()
-
-
-""""""""" syntastic error checking
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """ Set start window position and size
 "winpos 33 0
@@ -172,11 +157,11 @@ endif
 nnoremap ; ,
 nnoremap , ;
 
-
-" Concerns searching
+""""""""""""""""""""""""""" Concerns searching """""""""""""""""""""""""""""""""
 set incsearch
 set ignorecase
 set smartcase
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "nnoremap <space> za
 "set foldmethod=syntax "indent
@@ -187,7 +172,18 @@ set smartcase
 "endif
 
 colorscheme willy-light
-set ruler
+set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+
+""""""""" syntastic error checking """""""""""""""""""""""""""""""""""
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""" vim fugitive (git) """"""""""""""""""""""""""""""""""""""""
 nnoremap <leader>gs :Gstatus<CR>
