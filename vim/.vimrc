@@ -75,7 +75,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 :set number
 
 " Change leader key from \
-let mapleader=","
+let mapleader=" "
+
+" shortcut to easy-motion
+map <leader>v <leader><leader>w
 
 " Quickly edit/reload the vimrc file using ,ev and ,sv
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -100,7 +103,9 @@ set noswapfile
 " Vim can highlight whitespaces for you in a convenient way:
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
-" This line will make Vim set out tab characters, trailing whitespace and invisible spaces visually, and additionally use the # sign at the end of lines to mark lines that extend off-screen. For more info, see :h listchars.
+" This line will make Vim set out tab characters, trailing whitespace and
+" invisible spaces visually, and additionally use the # sign at the end of
+" lines to mark lines that extend off-screen. For more info, see :h listchars.
 autocmd filetype html,xml set listchars-=tab:>.
 
 
@@ -215,9 +220,6 @@ noremap <C-k> w
 
 nnoremap <C-u> 25k
 nnoremap <C-d> 25j
-
-"nnoremap <S-l> i<tab>
-nnoremap <S-l> kA<CR>
 
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
