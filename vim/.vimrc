@@ -27,10 +27,33 @@ Plugin 'vim-syntastic/syntastic'
 " easymotion for easy navigation in files
 Plugin 'easymotion/vim-easymotion'
 
+" dark colorscheme
+Plugin 'nightsense/office'
+" another nice colorscheme
+Plugin 'bluz71/vim-moonfly-colors'
+
+" ctrlp, for file search
+Plugin 'kien/ctrlp.vim'
+
+" Lists tags from source code files
+Plugin 'majutsushi/tagbar'
+
 " willy colorscheme
 " colorscheme willy-light
 " colorscheme willy-dark
-Plugin 'nightsense/willy'
+" Plugin 'nightsense/willy'
+
+" Switch between source and header file
+Plugin 'vim-scripts/a.vim'
+
+" Autocompletion
+"Plugin 'Valloric/YouCompleteMe'
+
+" Better git log and such, works on top of fugitive
+Plugin 'gregsexton/gitv'
+
+" More clever f/F/t/T search functionality
+Plugin 'rhysd/clever-f.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -47,38 +70,49 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+set encoding=utf-8
 
-""""""""" NERDtree
+""""""""" NERDtree """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Load NERDtree
 autocmd vimenter * NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Load pathogen
-"filetype off
-"call pathogen#incubate()
-"execute pathogen#infect()
-"call pathogen#helptags()
+" filetype off
+" call pathogen#incubate()
+" execute pathogen#infect()
+" call pathogen#helptags()
 
 """ Set start window position and size
 "winpos 33 0
 "set lines=60
 
-""" Set the tab to 4 spaces. 
-:set tabstop=4
-:set shiftwidth=4
-:set expandtab
+set termguicolors
 
-:set smartindent
+filetype plugin on
+set omnifunc=syntaxcomplete#Complete
+
+" Tagbar shortcut
+nmap <F8> :TagbarToggle<CR>
+nnoremap <silent> <F9> :TagbarToggle<CR>
+let g:tagbar_ctags_bin = '~/Applications/ctags58/ctags.exe'
+
+""" Set the tab to 4 spaces. 
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+set smartindent
 
 """ Show line number.
-:set number
+set number
 
 " Change leader key from \
 let mapleader=" "
 
 " shortcut to easy-motion
-map <leader>v <leader><leader>w
+map <leader>f <leader><leader>w
 
 " Quickly edit/reload the vimrc file using ,ev and ,sv
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
@@ -176,7 +210,8 @@ set smartcase
 "    syntax enable
 "endif
 
-colorscheme willy-light
+"colorscheme office-dark
+colorscheme moonfly
 set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 
 """"""""" syntastic error checking """""""""""""""""""""""""""""""""""
