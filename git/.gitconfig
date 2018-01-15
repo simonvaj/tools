@@ -1,6 +1,3 @@
-[user]
-	name = Simon Vajedi
-	email = vajedi@fcc.chalmers.se
 [core]
 	autocrlf = true
 [alias]
@@ -12,6 +9,7 @@
 	hoppa = checkout
 	ta = add
 	se = fetch
+	ladda = fetch
 	sudda = reset
 	gren = branch
 	s = status
@@ -20,15 +18,8 @@
 	runa = show
 [push]
 	default = simple
-[gui]
-	recentrepo = C:/Users/vajedi/Documents/RRS/VRC
 [branch]
 	autosetuprebase = always
-[difftool "sourcetree"]
-	cmd = 'C:/Program Files/TortoiseSVN/bin/TortoiseMerge.exe' \"$LOCAL\" \"$REMOTE\"
-[mergetool "sourcetree"]
-	cmd = 'C:/Program Files/TortoiseSVN/bin/TortoiseMerge.exe'  -base:\"$BASE\" -mine:\"$LOCAL\" -theirs:\"$REMOTE\" -merged:\"$MERGED\"
-	trustExitCode = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
