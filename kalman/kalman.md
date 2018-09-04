@@ -2,7 +2,7 @@
 ## Kalman vectors and matrices with dimensions
 
 | Name                          | Symbol                         | Dimensions    | Notes |
-| ----------------------------- |:------------------------------:|:-------------:|-------|
+| :---------------------------- |:------------------------------:|:-------------:|-------|
 | state                         | $$\mathbf{x}$$                 | $$n\times 1$$ | |
 | input                         | $$\mathbf{u}$$                 | $$p\times 1$$ | control input |
 | output                        | $$\mathbf{z}$$                 | $$m\times 1$$ | measurements, observation |
