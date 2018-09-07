@@ -11,6 +11,7 @@
 	n = pull
 	j = checkout
 	y = rebase
+	m = merge
 	b = branch
 	l = log
 	sl = shortlog
