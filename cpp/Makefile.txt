@@ -1,0 +1,20 @@
+SOURCES = $(wildcard *.cpp)
+OBJECTS = $(SOURCES: .cpp = .o)
+OUT = testcpy.exe
+CFLAGS = -O3 -Wall -std=gnu++11
+INCLUDES = -Ipython36/include
+
+#-std=c++11
+CC = g++
+
+all: $(OUT)
+	@echo Successfully built $(OUT)
+
+$(OUT): $(OBJECTS)
+	$(CC) $(CFLAGS) $(INCLUDES) -L./ -lpython36 -o $(OUT) $(OBJECTS) $(LFLAGS) $(LIBS)
+
+$(OBJECTS):
+	$(CC) $(CFLAGS) $(INCLUDES) -L./ -lpython36 -c $(SOURCES)
+
+clean:
+	del *.o *~ $(OUT)
